@@ -1,0 +1,8 @@
+<resources>
+
+
+    <style name="Theme.fullScreen" parent="Theme.AppCompat.Light.NoActionBar">
+        <item name="android:typeface">monospace</item>
+    </style>
+
+</resources>
