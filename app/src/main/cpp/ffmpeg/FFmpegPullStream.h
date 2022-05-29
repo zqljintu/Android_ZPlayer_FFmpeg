@@ -6,6 +6,7 @@
 #define ZHYTOOL_FFMPEGPULLSTREAM_H
 #include <jni.h>
 #include <string>
+#include "Utils.h"
 
 #include <android/log.h>
 #include <android/native_window_jni.h>
@@ -24,8 +25,6 @@ extern "C"
 #include <SLES/OpenSLES.h>
 #include <SLES/OpenSLES_Android.h>
 }
-#define LOGE(...) __android_log_print(ANDROID_LOG_ERROR,"ZPlayer",__VA_ARGS__)
-#define LOGI(...) __android_log_print(ANDROID_LOG_INFO,"ZPlayer",__VA_ARGS__)
 #define MAX_AUDIO_FRAME_SIZE 44100
 
 

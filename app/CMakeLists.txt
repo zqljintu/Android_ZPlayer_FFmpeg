@@ -77,7 +77,10 @@ set_target_properties( yuv
 add_library( ffmpeg-lib
         SHARED
         ${CMAKE_SOURCE_DIR}/src/main/cpp/ffmpeg-lib.cpp
-        ${CMAKE_SOURCE_DIR}/src/main/cpp/ffmpeg/FFmpegPullStream.cpp)
+        ${CMAKE_SOURCE_DIR}/src/main/cpp/ffmpeg/FFmpegPullStream.cpp
+        ${CMAKE_SOURCE_DIR}/src/main/cpp/ffmpeg/AVCodecVideoLocalthread.cpp
+        ${CMAKE_SOURCE_DIR}/src/main/cpp/ffmpeg/AVCodecAudioLocalthread.cpp
+        ${CMAKE_SOURCE_DIR}/src/main/cpp/ffmpeg/VideoDecoder.cpp)
 
 #find_library( log-lib
 #              log )

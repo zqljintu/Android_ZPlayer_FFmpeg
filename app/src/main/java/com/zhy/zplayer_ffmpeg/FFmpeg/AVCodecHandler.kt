@@ -12,6 +12,9 @@ object AVCodecHandler {
 
     external fun initFFmpeg()
 
-    external fun setFilePath(filePath: String, callBack: AVCodecCallBack)
+    external fun setFilePath(filePath: String, callBack: AVCodecCallBack?)
+
+    external fun setVideoCodecFilePath(filePath: String, callBack: AVCodecCallBack?)
+    external fun setAudioCodecFilePath(filePath: String, callBack: AVCodecCallBack?)
 
 }
