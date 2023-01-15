@@ -17,7 +17,7 @@ int FFmpegPullStream::init(JNIEnv *env, jstring url) {
     env->ReleaseStringUTFChars(url,temp);
 
     //Register
-    av_register_all();
+    avformat_network_init();
     //NetWork
     avformat_network_init();
     //注册库中所有可用的文件格式和编码器

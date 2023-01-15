@@ -85,15 +85,22 @@ extern "C"
 JNIEXPORT void JNICALL
 Java_com_zhy_zplayer_1ffmpeg_FFmpeg_AVCodecHandler_setVideoCodecFilePath(JNIEnv *env, jobject thiz,
                                                                          jstring file_path,
-                                                                         jobject call_back) {
+                                                                         jobject surface,
+                                                                         jobject call_back,
+                                                                         jint dst_w, jint dst_h) {
     if (file_path == NULL) {
         return;
     }
+    ANativeWindow *window = ANativeWindow_fromSurface(env, surface);
     const char* file = env->GetStringUTFChars(file_path, JNI_FALSE);
     char input_str[500] = {0};
     strcpy(input_str,file);
     env->ReleaseStringUTFChars(file_path, file);
     videoLocalthread = new AVCodecVideoLocalthread();
+    videoLocalthread->setJniEnv(env);
+    videoLocalthread->setAvCallback(call_back);
+    videoLocalthread->setANativeWindow(window);
+    videoLocalthread->setDstSize(dst_w, dst_h);
 
     std::thread threadVideo(setVideoPath, input_str);
     threadVideo.join();

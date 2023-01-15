@@ -88,7 +88,7 @@ void VideoDecoder::Decode(AVCodecContext* codec_ctx, AVPacket* pkt, AVFrame* fra
 
 void VideoDecoder::Prepare(ANativeWindow* window) {
     native_window_ = window;
-    av_register_all();
+    avformat_network_init();
     auto av_format_context = avformat_alloc_context();
     avformat_open_input(&av_format_context, path_.c_str(), nullptr, nullptr);
     avformat_find_stream_info(av_format_context, nullptr);

@@ -13,28 +13,28 @@ add_library( avcodec-57
         IMPORTED )
 set_target_properties( avcodec-57
         PROPERTIES IMPORTED_LOCATION
-        ${distribution_DIR}/libavcodec-57.so )
+        ${distribution_DIR}/libavcodec.so )
 
 add_library( avdevice-57
         SHARED
         IMPORTED )
 set_target_properties( avdevice-57
         PROPERTIES IMPORTED_LOCATION
-        ${distribution_DIR}/libavdevice-57.so )
+        ${distribution_DIR}/libavdevice.so )
 
 add_library( avfilter-6
         SHARED
         IMPORTED)
 set_target_properties( avfilter-6
         PROPERTIES IMPORTED_LOCATION
-        ${distribution_DIR}/libavfilter-6.so )
+        ${distribution_DIR}/libavfilter.so )
 
 add_library( avformat-57
         SHARED
         IMPORTED)
 set_target_properties( avformat-57
         PROPERTIES IMPORTED_LOCATION
-        ${distribution_DIR}/libavformat-57.so )
+        ${distribution_DIR}/libavformat.so )
 
 
 add_library( avutil-55
@@ -42,21 +42,15 @@ add_library( avutil-55
         IMPORTED )
 set_target_properties( avutil-55
         PROPERTIES IMPORTED_LOCATION
-        ${distribution_DIR}/libavutil-55.so )
+        ${distribution_DIR}/libavutil.so )
 
-add_library( postproc-54
-        SHARED
-        IMPORTED )
-set_target_properties( postproc-54
-        PROPERTIES IMPORTED_LOCATION
-        ${distribution_DIR}/libpostproc-54.so )
 
 add_library( swresample-2
         SHARED
         IMPORTED )
 set_target_properties( swresample-2
         PROPERTIES IMPORTED_LOCATION
-        ${distribution_DIR}/libswresample-2.so )
+        ${distribution_DIR}/libswresample.so )
 
 
 add_library( swscale-4
@@ -94,7 +88,6 @@ target_link_libraries(
         avfilter-6
         avformat-57
         avutil-55
-        postproc-54
         swresample-2
         swscale-4
         OpenSLES

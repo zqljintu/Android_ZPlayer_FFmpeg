@@ -33,13 +33,28 @@ public:
     void setFile(char* filePath);
     void goPlay(bool play);
     void release();
+    void setJniEnv(JNIEnv *env);
+    void setANativeWindow(ANativeWindow* nwindow);
+    void updateVideoFrame(AVFrame* frame);
+    void setAvCallback(jobject call_back);
+    void setDstSize(int width, int height);//设置目标显示尺寸
 protected:
 
 private:
+
+    ANativeWindow* native_window = nullptr;
+    ANativeWindow_Buffer window_buffer{};
+
+    int dstW = 0;
+    int dstH = 0;
+    int windowWidth;
+    int windowHeight;
     bool play = true;
     char *filePath = "";
     int initVideoCodec();
-
+    jobject avCallback = NULL;
+    JNIEnv *env = NULL;
+    JavaVM* vm = NULL;
     int fileTimes = 0;
     int videoStream, i, numBytes;
     int ret, got_picture;

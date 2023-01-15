@@ -10,6 +10,7 @@ extern "C"
 #include "libavformat/avformat.h" //封装格式上下文
 #include "libavcodec/avcodec.h" //解码库
 #include "libswscale/swscale.h"
+#include "libavdevice/avdevice.h"
 #include "libswresample/swresample.h"
 #include "libavutil/imgutils.h"
 #include "libyuv.h"

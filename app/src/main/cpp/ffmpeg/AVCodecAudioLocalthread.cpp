@@ -19,7 +19,7 @@ void AVCodecAudioLocalthread::setFilePath(char* path) {
 int AVCodecAudioLocalthread::initAudioCodec() {
     LOGI("Audio 开始");
 
-    av_register_all(); //初始化FFMPEG  调用了这个才能正常适用编码器和解码器
+    avformat_network_init(); //初始化FFMPEG  调用了这个才能正常适用编码器和解码器
 
     //Allocate an AVFormatContext.
     pFormatCtx = avformat_alloc_context();
@@ -151,7 +151,7 @@ void AVCodecAudioLocalthread::goPlay(bool play) {
                                                              AV_SAMPLE_FMT_S16, 1);
                 sleepTime = (aCodecCtx->sample_rate*16*2/8)/out_buffer_size;
                 audioPts = packet->pts;
-                av_usleep(400 * 1000);
+                av_usleep(40 * 1000);
 //                if(audioOutput->bytesFree() < out_buffer_size) {
 //                    av_usleep(sleepTime * 1000);
 //                    audioDevice->write((const char*)a_out_buffer, out_buffer_size);
@@ -216,6 +216,9 @@ void AVCodecAudioLocalthread::release() {
     }
     if (pFormatCtx) {
         avformat_close_input(&pFormatCtx);
+    }
+    if (vm){
+        vm->DestroyJavaVM();
     }
 }
 
